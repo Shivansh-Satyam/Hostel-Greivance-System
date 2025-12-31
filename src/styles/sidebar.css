@@ -1,0 +1,64 @@
+.sidebar {
+  flex: 0 0 25%;
+  border: 3px solid red;
+  min-width: 240px;
+  width: 20%;
+  background-color:#e75ca3;
+  color: #001219;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 12px 30px rgb(100, 0, 0);
+}
+
+.profile-section {
+    width:300px;
+    height:300px;
+    background-color: #005f73;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+  width: 80%;
+  height: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.sidebar-button button {
+  width: 100%;
+  padding:14px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 12px;
+  border: 3px solid #374151;
+  border-radius: 20px;
+  background-color: #ff99ac;
+  color: black;
+  cursor: pointer;
+
+  transition: 
+    transform 0.25 ease,
+    box-shadow 0.25 ease,
+    background-color 0.25 ease;
+}
+
+.sidebar-button button:hover {
+    transform:translateX(6px);
+  background-color: #2563eb;
+  box-shadow: 0 8px 16px rgba(37,99,235,0.4) ;
+
+}
+
+.sidebar-button button:active{
+    transform:translateX(6px) scale(0.96)
+}
