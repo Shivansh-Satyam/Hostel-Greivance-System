@@ -21,23 +21,42 @@ export default function LanComplaints({ goBack }) {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+   const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    console.log("LAN Complaint Submitted:", formData);
+  const complaintPayload = {
+    studentName: formData.studentName,
+    studentId: formData.rollNumber,
+    contactNumber: formData.contactNumber,
 
-    // later → API call goes here
+    category: "Lan",
+    issueType: formData.issueType,
+    description: formData.description,
+    hostel: formData.hostel,
+    room: formData.roomNumber,
 
-    setFormData({
-      studentName: "",
-      rollNumber: "",
-      hostel: "",
-      roomNumber: "",
-      issueType: "",
-      description: "",
-      contactNumber: ""
-    });
+    priority: "Normal"
   };
+
+  try {
+    const res = await fetch("http://localhost:5000/api/complaints", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(complaintPayload)
+    });
+
+    if (res.ok) {
+      alert("Complaint submitted successfully");
+      goBack();
+    } else {
+      alert("Failed to submit complaint");
+    }
+  } catch (err) {
+    alert("Server error");
+  }
+};
 
   return (
     <div className="form-page">

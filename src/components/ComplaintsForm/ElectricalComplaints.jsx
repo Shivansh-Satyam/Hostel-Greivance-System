@@ -17,12 +17,42 @@ export default function ElectricalComplaints({ goBack }) {
     setFormData((p) => ({ ...p, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Electrical Complaint:", formData);
-    goBack();
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const complaintPayload = {
+    studentName: formData.studentName,
+    studentId: formData.rollNumber,
+    contactNumber: formData.contactNumber,
+
+    category: "Electrical",
+    issueType: formData.issueType,
+    description: formData.description,
+    hostel: formData.hostel,
+    room: formData.roomNumber,
+
+    priority: "Normal"
   };
 
+  try {
+    const res = await fetch("http://localhost:5000/api/complaints", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(complaintPayload)
+    });
+
+    if (res.ok) {
+      alert("Complaint submitted successfully");
+      goBack();
+    } else {
+      alert("Failed to submit complaint");
+    }
+  } catch (err) {
+    alert("Server error");
+  }
+};
   return (
     <div className="form-page">
         <div className="heading">
