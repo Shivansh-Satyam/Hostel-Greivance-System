@@ -15,6 +15,7 @@ export default function SideBar(){
             <div className="sidebar-button">
                 <button className="ui-btn">view profile</button>
                 <button className="ui-btn">Change Password</button>
+                <button className="ui-btn">View Complaints</button>
                 <button className="ui-btn">Updates</button>
                 <button className="ui-btn">Logout</button>
             </div>
