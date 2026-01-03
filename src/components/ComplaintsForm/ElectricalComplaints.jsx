@@ -74,7 +74,7 @@ export default function ElectricalComplaints({ goBack }) {
         </div>
 
         <div className="form-row">
-            <label htmlFor="rollNumber">Roll Number</label>
+            <label htmlFor="rollNumber">Student Id</label>
             <input
             id="rollNumber"
             name="rollNumber"
